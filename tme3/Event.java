@@ -33,5 +33,5 @@ public abstract class Event implements Serializable{
     public boolean ready(long offset) {
         return System.currentTimeMillis() >= eventTime + offset;
     } 
-    public abstract void action() throws Controller.ControllerException;
+    public abstract void action() throws ControllerException;
 } ///:~i

@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import tme3.ControllerException;
+
 //a class that deserializes a GreenhouseControls object. Contains a display
 //method that fixes the error, logs the fixed error and runs the program
 //from where it left off.

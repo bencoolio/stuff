@@ -1,4 +1,5 @@
 import tme3.*;
+import tme3.ControllerException;
 
     // A class that demonstrates a malfunction event. An exception is thrown
     // when the action method is used.
@@ -10,7 +11,7 @@ import tme3.*;
             windowOk = false;
             errorCode = 1;
         }
-        public void action()throws ControllerException{
+        public void action() throws ControllerException{
             if(errorCode == 1)
                 throw new ControllerException("Window Malfunction!!");
         }

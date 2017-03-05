@@ -95,10 +95,13 @@ public class GreenhouseControls extends Controller {
 */
 
     public class Restart extends Event {
-        public Restart(long delayTime, String filename)
+    	private Controller controller;
+    	
+        public Restart(long delayTime, String filename, Controller controller)
         throws IOException{
             super(delayTime);
             eventsFile = filename;
+            this.controller = controller;
         }
 
       //adds events
@@ -167,7 +170,7 @@ public class GreenhouseControls extends Controller {
 
                         if(dLay == nRings)
                             nRings = 1;
-                        addEvent(new Bell(dLay,(int)nRings));
+                        addEvent(new Bell(dLay,(int)nRings, this.controller));
                     }
                     //gets delay time from file for WaterOn, converts string
 
@@ -306,7 +309,7 @@ public class GreenhouseControls extends Controller {
 	    GreenhouseControls gc = new GreenhouseControls();
 	    if (option.equals("-f"))  {
 		try{ 
-          gc.addEvent(gc.new Restart(0,filename));
+          gc.addEvent(gc.new Restart(0,filename, gc));
           }catch(IOException f){
          System.out.println(f);
 } 
